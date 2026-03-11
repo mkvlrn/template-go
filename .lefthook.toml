@@ -11,5 +11,5 @@ jobs = [
 jobs = [
   { name = "lint", run = "mise run lint" },
   { name = "format", run = "mise run format" },
-  { name = "test", run = "mise run test ..." },
+  { name = "test", run = "mise run test" },
 ]
