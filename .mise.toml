@@ -10,4 +10,4 @@ setup = { run = ["mise trust", "mise install", "lefthook install"] }
 dev = { run = "go run ./cmd/{{arg(i=0)}}" }
 lint = { run = "golangci-lint run --default=standard" }
 format = { run = "golangci-lint fmt" }
-test = { run = "go test ./cmd/{{arg(i=0)}}/..." }
+test = { run = "go test ./..." }
