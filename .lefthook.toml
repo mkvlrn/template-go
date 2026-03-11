@@ -1,0 +1,15 @@
+[commit-msg]
+jobs = [{ name = "commitlint", run = "commitlint lint --message {1}" }]
+
+[pre-commit]
+jobs = [
+  { name = "lint", run = "mise run lint" },
+  { name = "format", run = "mise run format" },
+]
+
+[pre-push]
+jobs = [
+  { name = "lint", run = "mise run lint" },
+  { name = "format", run = "mise run format" },
+  { name = "test", run = "mise run test" },
+]
