@@ -4,12 +4,12 @@ jobs = [{ name = "commitlint", run = "commitlint lint --message {1}" }]
 [pre-commit]
 jobs = [
   { name = "lint", run = "mise run lint" },
-  { name = "format", run = "mise run format" },
+  { name = "format-check", run = "mise run format-check" },
 ]
 
 [pre-push]
 jobs = [
   { name = "lint", run = "mise run lint" },
-  { name = "format", run = "mise run format" },
+  { name = "format-check", run = "mise run format-check" },
   { name = "test", run = "mise run test" },
 ]

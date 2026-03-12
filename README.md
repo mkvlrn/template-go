@@ -27,9 +27,13 @@ Installs all tools (Go, golangci-lint, lefthook) and configures git hooks.
 
 Runs a program from `./cmd/<name>`.
 
-`mise run test <name>`
+`mise run build`
 
-Runs tests for `./cmd/<name>`.
+Builds all programs from `./cmd` into `./bin`.
+
+`mise run test`
+
+Runs all tests.
 
 `mise run lint`
 
@@ -37,7 +41,11 @@ Runs golangci-lint with the `standard` linter set.
 
 `mise run format`
 
-Runs golangci-lint formatting.
+Formats code using gofumpt via golangci-lint.
+
+`mise run format-check`
+
+Checks formatting without modifying files. Exits non-zero if anything needs formatting.
 
 ## ci
 
