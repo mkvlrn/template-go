@@ -6,7 +6,7 @@ lefthook = "latest"
 
 
 [tasks]
-setup = { run = ["mise trust", "mise install", "lefthook install"] }
+setup = { run = ["mise trust --yes", "mise install", "lefthook install"] }
 dev = { run = "go run ./cmd/{{arg(i=0)}}" }
 lint = { run = "golangci-lint run --default=standard" }
 format = { run = "golangci-lint fmt" }
