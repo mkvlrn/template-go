@@ -11,3 +11,4 @@ dev = { run = "go run ./cmd/{{arg(i=0)}}" }
 lint = { run = "golangci-lint run --default=standard" }
 format = { run = "golangci-lint fmt" }
 test = { run = "go test ./..." }
+build = { run = "for dir in ./cmd/*/; do go build -o ./bin/$(basename $dir) $dir; done" }
