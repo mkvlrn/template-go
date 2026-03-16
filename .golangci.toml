@@ -3,9 +3,13 @@ version = "2"
 [linters]
 default = "fast"
 enable = ["revive"]
-settings = { revive = { enable-default-rules = true, rules = [
-  { name = "package-comments", disabled = true },
-] } }
+[linters.settings.revive]
+enable-default-rules = true
+rules = [{ name = "package-comments", disabled = true }]
+[linters.settings.depguard.rules.prevent_unmaintained_packages]
+list-mode = "lax"
+files = ["$all"]
+allow = ["$gostd"]
 
 [formatters]
 enable = ["gofumpt"]
