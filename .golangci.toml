@@ -5,7 +5,10 @@ default = "fast"
 enable = ["revive"]
 [linters.settings.revive]
 enable-default-rules = true
-rules = [{ name = "package-comments", disabled = true }]
+rules = [
+  { name = "package-comments", disabled = true },
+  { name = "exported", disabled = true },
+]
 [linters.settings.depguard.rules.prevent_unmaintained_packages]
 list-mode = "lax"
 files = ["$all"]
