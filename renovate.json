@@ -7,7 +7,7 @@
       "groupName": "Toolchain (mise)"
     },
     {
-      "matchManagers": ["golang"],
+      "matchManagers": ["gomod"],
       "groupName": "Dependencies (go)"
     },
     {
