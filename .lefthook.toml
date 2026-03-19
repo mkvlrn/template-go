@@ -13,3 +13,15 @@ jobs = [
   { name = "format-check", run = "mise run format-check" },
   { name = "test", run = "mise run test" },
 ]
+
+[post-checkout]
+jobs = [
+  { name = "tidy mise", run = "mise install -q" },
+  { name = "tidy go", run = "go mod tidy" },
+]
+
+[post-merge]
+jobs = [
+  { name = "tidy mise", run = "mise install -q" },
+  { name = "tidy go", run = "go mod tidy" },
+]

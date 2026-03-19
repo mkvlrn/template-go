@@ -1,8 +1,8 @@
 [tools]
-go = "latest"
-golangci-lint = "latest"
-lefthook = "latest"
-"go:github.com/conventionalcommit/commitlint" = "latest"
+go = "1.26.1"
+golangci-lint = "2.11.3"
+lefthook = "2.1.4"
+"go:github.com/conventionalcommit/commitlint" = "0.12.0"
 
 
 [tasks]
