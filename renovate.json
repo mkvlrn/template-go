@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "packageRules": [
+    {
+      "matchManagers": ["mise"],
+      "groupName": "Toolchain (mise)"
+    },
+    {
+      "matchManagers": ["gomod"],
+      "groupName": "Dependencies (go)"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions"
+    }
+  ],
+  "rangeStrategy": "bump"
+}
