@@ -1,6 +1,6 @@
 [tools]
 go = "1.26.1"
-golangci-lint = "2.11.3"
+golangci-lint = "2.11.4"
 lefthook = "2.1.4"
 "go:github.com/conventionalcommit/commitlint" = "0.12.0"
 
