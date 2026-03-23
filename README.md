@@ -8,11 +8,11 @@
 A sane, opinionated template for Go projects with a consistent dev environment powered by mise.
 
 > [!IMPORTANT]
-> This template requires **mise**. It manages the correct versions of runtimes and tooling, such as Node itself, pnpm, and others.
+> This template requires **mise**. It manages the correct versions of runtimes and tooling, such as go itself, golangci-lint, and others.
 >
 > Check https://mise.jdx.dev
 
-mise handles tool versioning and task running, replacing both version managers and Makefiles with a single, cross-platform tool.
+mise handles tool versioning only, while Makefile is the still the task runner
 
 ## uses
 
@@ -28,37 +28,37 @@ To ensure a reproducible environment, [mise](https://mise.jdx.dev/) is used:
 2. **Activate mise**: https://mise.jdx.dev/getting-started.html#activate-mise
 3. **Run setup**:
    ```bash
-   mise setup
+   make setup
    ```
 
-This task trusts the project config, installs CLI tools (Node, pnpm, ncu), and runs pnpm install. All other scripts are standard package.json commands.
+This task trusts the project config and installs CLI tools (go, golangci-lint, lefthook)
 
 > [!NOTE]
 > Git hooks are in place to make sure both the tooling managed by mise and the project dependencies are synced with each checkout and merge.
 
 ## tasks
 
-`mise run dev <name>`
+`make dev <name>`
 
 Runs a program from `./cmd/<name>`.
 
-`mise run build`
+`make build`
 
 Builds all programs from `./cmd` into `./bin`.
 
-`mise run test`
+`make test`
 
 Runs all tests.
 
-`mise run lint`
+`make lint`
 
 Runs golangci-lint with the `standard` linter set.
 
-`mise run format`
+`make format`
 
 Formats code using gofumpt via golangci-lint.
 
-`mise run format-check`
+`make format-check`
 
 Checks formatting without modifying files. Exits non-zero if anything needs formatting.
 
