@@ -3,13 +3,3 @@ go = "1.26.1"
 golangci-lint = "2.11.4"
 lefthook = "2.1.4"
 "go:github.com/conventionalcommit/commitlint" = "0.12.0"
-
-
-[tasks]
-setup = { run = ["mise trust --yes", "mise install", "lefthook install"] }
-dev = { run = "go run ./cmd/{{arg(i=0)}}" }
-lint = { run = "golangci-lint run --default=standard" }
-format = { run = "golangci-lint fmt" }
-format-check = { run = "golangci-lint fmt --diff" }
-test = { run = "go test ./..." }
-build = { run = "for dir in ./cmd/*/; do go build -o ./bin/$(basename $dir) $dir; done" }

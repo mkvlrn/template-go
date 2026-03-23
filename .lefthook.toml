@@ -3,15 +3,15 @@ jobs = [{ name = "commitlint", run = "commitlint lint --message {1}" }]
 
 [pre-commit]
 jobs = [
-  { name = "lint", run = "mise run lint" },
-  { name = "format-check", run = "mise run format-check" },
+  { name = "lint", run = "make lint" },
+  { name = "format-check", run = "make format-check" },
 ]
 
 [pre-push]
 jobs = [
-  { name = "lint", run = "mise run lint" },
-  { name = "format-check", run = "mise run format-check" },
-  { name = "test", run = "mise run test" },
+  { name = "lint", run = "make lint" },
+  { name = "format-check", run = "make format-check" },
+  { name = "test", run = "make test" },
 ]
 
 [post-checkout]
