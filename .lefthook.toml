@@ -1,27 +1,19 @@
-[commit-msg]
-jobs = [{ name = "commitlint", run = "commitlint lint --message {1}" }]
+[commit-msg.commands]
+cog-lint = { run = "cog verify --file {1}" }
 
-[pre-commit]
-jobs = [
-  { name = "lint", run = "make lint" },
-  { name = "format-check", run = "make format-check" },
-]
+[pre-commit.commands]
+lint = { run = "make lint" }
+format-check = { run = "make format-check" }
 
-[pre-push]
-jobs = [
-  { name = "lint", run = "make lint" },
-  { name = "format-check", run = "make format-check" },
-  { name = "test", run = "make test" },
-]
+[pre-push.commands]
+lint = { run = "make lint" }
+format-check = { run = "make format-check" }
+test = { run = "make test" }
 
-[post-checkout]
-jobs = [
-  { name = "tidy mise", run = "mise install -q" },
-  { name = "tidy go", run = "go mod tidy" },
-]
+[post-checkout.commands]
+sync-mise = { run = "mise install" }
+sync-go = { run = "go mod tidy" }
 
-[post-merge]
-jobs = [
-  { name = "tidy mise", run = "mise install -q" },
-  { name = "tidy go", run = "go mod tidy" },
-]
+[post-merge.commands]
+sync-mise = { run = "mise install" }
+sync-go = { run = "go mod tidy" }
