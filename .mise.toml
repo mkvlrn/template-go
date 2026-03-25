@@ -3,3 +3,7 @@ go = "1.26.1"
 golangci-lint = "2.11.4"
 lefthook = "2.1.4"
 "go:github.com/conventionalcommit/commitlint" = "0.12.0"
+
+[settings]
+disable_backends = ["asdf"]
+use_versions_host = false
