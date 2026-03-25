@@ -1,28 +1,40 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:recommended"],
+	"extends": [
+		"config:recommended"
+	],
 	"packageRules": [
 		{
-			"matchPackageNames": ["github:**"],
+			"matchPackageNames": [
+				"github:**"
+			],
 			"groupName": "Toolchain (mise)"
 		},
 		{
-			"matchManagers": ["mise"],
+			"matchManagers": [
+				"mise"
+			],
 			"groupName": "Toolchain (mise)"
 		},
 		{
-			"matchManagers": ["gomod"],
+			"matchManagers": [
+				"gomod"
+			],
 			"groupName": "Dependencies (go)"
 		},
 		{
-			"matchManagers": ["github-actions"],
+			"matchManagers": [
+				"github-actions"
+			],
 			"groupName": "GitHub Actions"
 		}
 	],
 	"customManagers": [
 		{
 			"customType": "regex",
-			"fileMatch": ["(^|/|\\.)mise\\.toml$"],
+			"managerFilePatterns": [
+				"/(^|/|\\.)mise\\.toml$/"
+			],
 			"matchStrings": [
 				"\"github:(?<packageName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
 			],
