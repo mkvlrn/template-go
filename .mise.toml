@@ -2,7 +2,7 @@
 go = "1.26.1"
 golangci-lint = "2.11.4"
 lefthook = "2.1.4"
-cocogitto = "7.0.0"
+"github:cocogitto/cocogitto" = { version = "7.0.0" }
 
 [settings]
 disable_backends = ["asdf"]

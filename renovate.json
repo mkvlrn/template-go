@@ -3,6 +3,10 @@
 	"extends": ["config:recommended"],
 	"packageRules": [
 		{
+			"matchPackageNames": ["github:**"],
+			"groupName": "Toolchain (mise)"
+		},
+		{
 			"matchManagers": ["mise"],
 			"groupName": "Toolchain (mise)"
 		},
@@ -13,6 +17,16 @@
 		{
 			"matchManagers": ["github-actions"],
 			"groupName": "GitHub Actions"
+		}
+	],
+	"customManagers": [
+		{
+			"customType": "regex",
+			"fileMatch": ["(^|/|\\.)mise\\.toml$"],
+			"matchStrings": [
+				"\"github:(?<packageName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+			],
+			"datasourceTemplate": "github-releases"
 		}
 	],
 	"rangeStrategy": "bump",
