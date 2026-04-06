@@ -9,13 +9,13 @@ dev:
 	go run ./cmd/$(filter-out $@,$(MAKECMDGOALS))
 
 lint:
-	golangci-lint run --default=standard ./...
+	golangci-lint run --config=./.config/golangci.toml --default=standard ./...
 
 format:
-	golangci-lint fmt ./...
+	golangci-lint fmt --config=./.config/golangci.toml ./...
 
 format-check:
-	golangci-lint fmt ./... --diff
+	golangci-lint fmt --config=./.config/golangci.toml ./... --diff
 
 test:
 	go test ./...
