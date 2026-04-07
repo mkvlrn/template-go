@@ -6,19 +6,19 @@ setup:
 	lefthook install
 
 dev:
-	go run ./cmd/$(filter-out $@,$(MAKECMDGOALS))
+	@go run ./cmd/$(filter-out $@,$(MAKECMDGOALS))
 
 lint:
-	golangci-lint run --config=./.config/golangci.toml --default=standard ./...
+	@golangci-lint run --config=./.config/golangci.toml --default=standard ./...
 
 format:
-	golangci-lint fmt --config=./.config/golangci.toml ./...
+	@golangci-lint fmt --config=./.config/golangci.toml ./...
 
 format-check:
-	golangci-lint fmt --config=./.config/golangci.toml ./... --diff
+	@golangci-lint fmt --config=./.config/golangci.toml ./... --diff
 
 test:
-	go test ./...
+	@go test ./...
 
 build:
 	@mkdir -p ./bin
