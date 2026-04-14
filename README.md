@@ -8,7 +8,7 @@
 A sane, opinionated template for Go projects with a consistent dev environment powered by mise.
 
 > [!NOTE]
-> This template provides a [mise](https://mise.jdx.dev) configuration to make it easy to keep node and pnpm versions in sync. It handles tool versioning only, while Makefile is the still the task runner.
+> This template provides a [mise](https://mise.jdx.dev) configuration to make it easy to keep go and other tools versions in sync. It handles tool versioning only, while Makefile is the still the task runner.
 
 Uses, among other tools/packages:
 
@@ -24,7 +24,7 @@ This is _by far_ the easiest way to keep your environment consistent across diff
 
 If not using mise, make sure you have:
 
-- go 1.26.1
+- go 1.26.2
 - golangci-lint 2.11.4
 - lefthook 2.1.5
 - cocogitto 7.0.0
