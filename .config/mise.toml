@@ -1,7 +1,7 @@
 [tools]
 go = "1.26.3"
 golangci-lint = "2.12.2"
-lefthook = "2.1.6"
+lefthook = "2.1.8"
 "github:cocogitto/cocogitto" = { version = "7.0.0" }
 
 [settings]
