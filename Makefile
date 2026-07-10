@@ -9,20 +9,20 @@ dev:
 	@go run ./cmd/$(filter-out $@,$(MAKECMDGOALS))
 
 lint:
-	@golangci-lint run --config=./.config/golangci.toml --default=standard ./...
+	@golangci-lint run --default=standard ./...
 
 format:
-	@golangci-lint fmt --config=./.config/golangci.toml ./...
+	@golangci-lint fmt ./...
 
 format-check:
-	@golangci-lint fmt --config=./.config/golangci.toml ./... --diff
+	@golangci-lint fmt ./... --diff
 
 test:
 	@go test ./...
 
 build:
 	@mkdir -p ./bin
-	for dir in ./cmd/*/ ; do \
+	@for dir in ./cmd/*/ ; do \
 		go build -o ./bin/$$(basename $$dir) $$dir; \
 	done
 

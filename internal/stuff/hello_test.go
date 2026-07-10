@@ -1,9 +1,13 @@
-package main
+package stuff_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/mkvlrn/template-go/internal/stuff"
+)
 
 func TestHello(t *testing.T) {
-	got := Hello()
+	got := stuff.Hello()
 	want := "Hello, world"
 
 	if got != want {
