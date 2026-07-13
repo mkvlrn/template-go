@@ -1,4 +1,4 @@
-// Package main is the entrypoint for the hello cmd.
+// Package main is the application entrypoint.
 package main
 
 import (
@@ -8,13 +8,14 @@ import (
 	"github.com/mkvlrn/template-go/internal/math"
 )
 
+//nolint:mnd
 func main() {
-	fmt.Printf("%d + %d = %f\n", 1, 2, math.Add(1, 2)) //nolint:mnd
+	fmt.Printf("%d + %d = %f\n", 1, 2, math.Add(1, 2))
 
-	tenDividedByTwo, err := math.Divide(10, 2) //nolint:mnd
+	tenDividedByTwo, err := math.Divide(10, 2)
 	if err != nil {
 		log.Panic(err.Error())
 	}
 
-	fmt.Printf("%d / %d = %f\n", 10, 2, tenDividedByTwo) //nolint:mnd
+	fmt.Printf("%d / %d = %f\n", 10, 2, tenDividedByTwo)
 }

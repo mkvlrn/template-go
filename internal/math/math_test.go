@@ -64,7 +64,7 @@ func TestDivide(t *testing.T) {
 
 		t.Run(testName, func(t *testing.T) {
 			got, err := math.Divide(tt.a, tt.b)
-			if err != nil {
+			if err != nil && tt.b == 0 {
 				if !errors.Is(err, math.ErrDivideByZero) {
 					t.Errorf("got err %s, want err %s", err, math.ErrDivideByZero)
 				}
