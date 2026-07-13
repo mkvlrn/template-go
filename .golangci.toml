@@ -12,4 +12,3 @@ allow = ["$gostd"]
 
 [formatters]
 enable = ["gofumpt"]
-settings = { gofumpt = { extra-rules = true } }

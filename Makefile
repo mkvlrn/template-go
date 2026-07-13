@@ -6,7 +6,7 @@ setup:
 	lefthook install
 
 dev:
-	@go run ./cmd/$(filter-out $@,$(MAKECMDGOALS))
+	@go run .
 
 lint:
 	@golangci-lint run --default=standard ./...
@@ -18,13 +18,12 @@ format-check:
 	@golangci-lint fmt ./... --diff
 
 test:
-	@go test ./...
+	@go test ./... -cover
 
 build:
+	@rm -rf ./bin
 	@mkdir -p ./bin
-	@for dir in ./cmd/*/ ; do \
-		go build -o ./bin/$$(basename $$dir) $$dir; \
-	done
+	@go build -o ./bin/main main.go
 
 %:
 	@:
