@@ -24,23 +24,23 @@ This is _by far_ the easiest way to keep your environment consistent across diff
 
 If not using mise, make sure you have:
 
-- go 1.26.2
-- golangci-lint 2.12.2
-- lefthook 2.1.6
-- cocogitto 7.0.0
+- go 1.26
+- golangci-lint 2
+- lefthook 2
+- cocogitto 7
 
 > [!NOTE]
 > Git hooks are in place to make sure both the tooling managed by mise and the project dependencies are synced with each checkout and merge.
 
 ## tasks
 
-`make dev <name>`
+`make dev`
 
-Runs a program from `./cmd/<name>`.
+Runs `main.go`.
 
 `make build`
 
-Builds all programs from `./cmd` into `./bin`.
+Builds the program into `./bin`.
 
 `make test`
 
@@ -48,11 +48,11 @@ Runs all tests.
 
 `make lint`
 
-Runs golangci-lint with the `standard` linter set.
+Runs golangci-lint.
 
 `make format`
 
-Formats code using gofumpt via golangci-lint.
+Formats code using gofumpt.
 
 `make format-check`
 
