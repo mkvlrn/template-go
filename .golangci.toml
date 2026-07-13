@@ -19,9 +19,7 @@ enable = [
   "gocritic",  # Catches micro-performance traps and subtle logic bugs
   "gosec",     # Scans for actual security vulnerabilities (hardcoded credentials, math/rand abuse)
   "revive",    # Fast, configurable drop-in replacement for old golint
-
-  # Eh
-  "wsl_v5",
+  "wsl_v5",    # White space
 ]
 
 [linters.settings.revive]

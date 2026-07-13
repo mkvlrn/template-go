@@ -10,12 +10,12 @@ import (
 
 //nolint:mnd
 func main() {
-	fmt.Printf("%d + %d = %f\n", 1, 2, math.Add(1, 2))
+	fmt.Printf("%d + %d = %.2f\n", 1, 2, math.Add(1, 2))
 
 	tenDividedByTwo, err := math.Divide(10, 2)
 	if err != nil {
 		log.Panic(err.Error())
 	}
 
-	fmt.Printf("%d / %d = %f\n", 10, 2, tenDividedByTwo)
+	fmt.Printf("%d / %d = %.2f\n", 10, 2, tenDividedByTwo)
 }
