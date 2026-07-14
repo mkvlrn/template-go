@@ -1,5 +1,5 @@
-// Package math contains math functions.
-package math
+// Package simplemath contains math functions.
+package simplemath
 
 import "errors"
 

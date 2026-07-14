@@ -1,11 +1,11 @@
-package math_test
+package simplemath_test
 
 import (
 	"errors"
 	"fmt"
 	"testing"
 
-	"github.com/mkvlrn/template-go/internal/math"
+	"github.com/mkvlrn/template-go/internal/simplemath"
 )
 
 type testCase struct {
@@ -20,7 +20,7 @@ func TestAdd(t *testing.T) {
 	for _, tc := range tt {
 		testName := fmt.Sprintf("%f + %f = %f", tc.a, tc.b, tc.want)
 		t.Run(testName, func(t *testing.T) {
-			got := math.Add(tc.a, tc.b)
+			got := simplemath.Add(tc.a, tc.b)
 			if got != tc.want {
 				t.Errorf("got %f, want %f", got, tc.want)
 			}
@@ -34,7 +34,7 @@ func TestSubtract(t *testing.T) {
 	for _, tc := range tt {
 		testName := fmt.Sprintf("%f - %f = %f", tc.a, tc.b, tc.want)
 		t.Run(testName, func(t *testing.T) {
-			got := math.Subtract(tc.a, tc.b)
+			got := simplemath.Subtract(tc.a, tc.b)
 			if got != tc.want {
 				t.Errorf("got %f, want %f", got, tc.want)
 			}
@@ -48,7 +48,7 @@ func TestMultiply(t *testing.T) {
 	for _, tc := range tt {
 		testName := fmt.Sprintf("%f x %f = %f", tc.a, tc.b, tc.want)
 		t.Run(testName, func(t *testing.T) {
-			got := math.Multiply(tc.a, tc.b)
+			got := simplemath.Multiply(tc.a, tc.b)
 			if got != tc.want {
 				t.Errorf("got %f, want %f", got, tc.want)
 			}
@@ -63,11 +63,11 @@ func TestDivide(t *testing.T) {
 		testName := fmt.Sprintf("%f / %f = %f", tc.a, tc.b, tc.want)
 
 		t.Run(testName, func(t *testing.T) {
-			got, err := math.Divide(tc.a, tc.b)
+			got, err := simplemath.Divide(tc.a, tc.b)
 
 			if tc.b == 0 {
-				if !errors.Is(err, math.ErrDivideByZero) {
-					t.Errorf("got err %s, want err %s", err, math.ErrDivideByZero)
+				if !errors.Is(err, simplemath.ErrDivideByZero) {
+					t.Errorf("got err %s, want err %s", err, simplemath.ErrDivideByZero)
 				}
 
 				return

@@ -2,20 +2,23 @@
 package main
 
 import (
+	"flag"
 	"fmt"
-	"log"
+	"strconv"
 
-	"github.com/mkvlrn/template-go/internal/math"
+	"github.com/mkvlrn/template-go/internal/calculator"
 )
 
-//nolint:mnd
 func main() {
-	fmt.Printf("%d + %d = %.2f\n", 1, 2, math.Add(1, 2))
+	var input string
+	flag.StringVar(&input, "input", "2 + 2", `The expression to be solved, e.g., 2 * 5`)
+	flag.Parse()
 
-	tenDividedByTwo, err := math.Divide(10, 2)
+	solution, err := calculator.Solve(input)
 	if err != nil {
-		log.Panic(err.Error())
+		panic(err)
 	}
 
-	fmt.Printf("%d / %d = %.2f\n", 10, 2, tenDividedByTwo)
+	formattedSolution := strconv.FormatFloat(solution, 'f', -1, 64)
+	fmt.Printf("%s = %s\n", input, formattedSolution)
 }
