@@ -8,10 +8,10 @@ setup:
 	lefthook install
 
 dev:
-	@go run .
+	@go run . $(ARGS)
 
 lint:
-	@golangci-lint run --config=./.config/golangci.toml ./...
+	@golangci-lint run ./...
 
 format:
 	@gofumpt -w .

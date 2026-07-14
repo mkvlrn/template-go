@@ -2,7 +2,7 @@
   "[go]": {
     "editor.defaultFormatter": "golang.go"
   },
-  "go.lintFlags": ["--path-mode=abs", "--config=./.config/golangci.toml"],
+  "go.lintFlags": ["--path-mode=abs"],
   "go.lintTool": "golangci-lint",
   "go.useLanguageServer": true,
   "gopls": {
