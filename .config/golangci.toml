@@ -21,7 +21,6 @@ enable = [
   "revive",    # Fast, configurable drop-in replacement for old golint
   "wsl_v5",    # White space
 ]
-
 [linters.settings.revive]
 enable-default-rules = true
 [linters.settings.depguard.rules.prevent_unmaintained_packages]
@@ -32,6 +31,3 @@ allow = ["$gostd"]
 allow-first-in-block = true
 allow-whole-block = false
 branch-max-lines = 2
-
-[formatters]
-enable = ["gofumpt"]

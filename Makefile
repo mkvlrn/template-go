@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := build
+
 .PHONY: setup dev lint format format-check test build
 
 setup:
@@ -9,13 +11,13 @@ dev:
 	@go run .
 
 lint:
-	@golangci-lint run ./...
+	@golangci-lint run --config=./.config/golangci.toml ./...
 
 format:
-	@golangci-lint fmt ./...
+	@gofumpt -w .
 
 format-check:
-	@golangci-lint fmt ./... --diff
+	@gofumpt -d .
 
 test:
 	@go test ./... -cover
