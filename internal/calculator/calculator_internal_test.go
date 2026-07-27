@@ -11,7 +11,7 @@ func Test_parseInputValidExpression(t *testing.T) {
 	}
 
 	if *want != *got {
-		t.Fatalf("want %v, got %v", *want, *got)
+		t.Errorf("want %v, got %v", *want, *got)
 	}
 }
 
@@ -24,6 +24,6 @@ func Test_parseInputInvalidExpression(t *testing.T) {
 	}
 
 	if want != err.Error() {
-		t.Fatalf(`should error with %q, not %q`, want, err)
+		t.Errorf(`should error with %q, not %q`, want, err)
 	}
 }

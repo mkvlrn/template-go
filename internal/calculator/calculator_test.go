@@ -28,7 +28,7 @@ func TestSolve(t *testing.T) {
 	}
 }
 
-func TestSolveError(t *testing.T) {
+func TestSolve_Error(t *testing.T) {
 	tests := map[string]struct {
 		expression string
 		message    string
