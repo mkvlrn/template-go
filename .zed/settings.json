@@ -1,0 +1,36 @@
+{
+  "languages": {
+    "Go": {
+      "language_servers": ["gopls", "golangci-lint"],
+      "formatter": {
+        "external": {
+          "command": "mise",
+          "arguments": ["exec", "--", "golangci-lint", "fmt", "--stdin"]
+        }
+      }
+    }
+  },
+  "lsp": {
+    "gopls": {
+      "binary": {
+        "path": "mise",
+        "arguments": ["exec", "--", "gopls"]
+      }
+    },
+    "golangci-lint": {
+      "initialization_options": {
+        "command": [
+          "mise",
+          "exec",
+          "--",
+          "golangci-lint",
+          "run",
+          "--output.json.path",
+          "stdout",
+          "--show-stats=false",
+          "--output.text.path="
+        ]
+      }
+    }
+  }
+}
