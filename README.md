@@ -24,8 +24,9 @@ This is _by far_ the easiest way to keep your environment consistent across diff
 
 If not using mise, make sure you have:
 
-- go 1.26
+- go 1.27
 - golangci-lint 2
+- gofumpt 0.11
 - lefthook 2
 - cocogitto 7
 
@@ -48,15 +49,11 @@ Runs all tests.
 
 `make lint`
 
-Runs golangci-lint.
+Runs golangci-lint with a few linters and format checking enabled.
 
 `make format`
 
 Formats code using gofumpt.
-
-`make format-check`
-
-Checks formatting without modifying files. Exits non-zero if anything needs formatting.
 
 ## ci
 
