@@ -22,13 +22,13 @@ If you use [mise](https://mise.jdx.dev) and run `mise install` in the project ro
 
 This is _by far_ the easiest way to keep your environment consistent across different machines and team members, no matter the frequency of version updates. I'm not affiliated with mise but I wholeheartedly recommend it, so check it here: https://mise.jdx.dev.
 
-If not using mise, make sure you have:
+If not using mise, make sure you have these available in your path:
 
-- go 1.27
-- golangci-lint 2
-- gofumpt 0.11
-- lefthook 2
-- cocogitto 7
+- go
+- golangci-lint (v2)
+- gofumpt
+- lefthook
+- cocogitto
 
 > [!NOTE]
 > Git hooks are in place to make sure both the tooling managed by mise and the project dependencies are synced with each checkout and merge.
