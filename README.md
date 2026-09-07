@@ -1,68 +1,74 @@
 # template-go
 
-![build](https://img.shields.io/github/actions/workflow/status/mkvlrn/template-go/checks.yml?branch=main&style=flat&logo=github)
+[![ci](https://img.shields.io/github/actions/workflow/status/mkvlrn/template-go/checks.yml?branch=main&style=flat&logo=github&label=ci)](https://github.com/mkvlrn/template-go/actions/workflows/checks.yml?query=branch%3Amain)
 [![template](https://img.shields.io/badge/template-use_this_template-2ea44f?style=flat&logo=github)](https://github.com/mkvlrn/template-go/generate)
 [![mise](https://mise-versions.jdx.dev/badge.svg)](https://mise.jdx.dev)
-![license](https://img.shields.io/github/license/mkvlrn/template-go?style=flat)
+[![license](https://img.shields.io/github/license/mkvlrn/template-go?style=flat)](https://github.com/mkvlrn/template-go/blob/main/LICENSE)
 
-A sane, opinionated template for Go projects with a consistent dev environment powered by mise.
+A sane, opinionated template for Go projects.
 
 > [!NOTE]
-> This template provides a [mise](https://mise.jdx.dev) configuration to make it easy to keep go and other tools versions in sync. It handles tool versioning only, while Makefile is the still the task runner.
+> This template includes an Arch Linux Dev Container based on [mise-devcontainers](https://github.com/mkvlrn/mise-devcontainers), providing a consistent development environment with [mise](https://mise.jdx.dev) preconfigured.
+>
+> `mise` manages the Go toolchain and development tools inside the container, so it does not need to be installed on the host.
 
-Uses, among other tools/packages:
+Uses, among other tools:
 
-- [golangci-lint](https://golangci-lint.run) for linting and formatting
-- [lefthook](https://github.com/evilmartians/lefthook) for git hooks
-- [cocogitto](https://github.com/cocogitto/cocogitto) for commit message linting
+- [golangci-lint](https://golangci-lint.run) for linting
+- [gofumpt](https://github.com/mvdan/gofumpt) for formatting
+- [Lefthook](https://github.com/evilmartians/lefthook) for Git hooks
+- [Cocogitto](https://github.com/cocogitto/cocogitto) for commit message linting
+- [GNU Make](https://www.gnu.org/software/make/) as the task interface
 
 ## requirements and dependencies
 
-If you use [mise](https://mise.jdx.dev) and run `mise install` in the project root, you'll have the correct go and other tools installed.
+To use the included Dev Container you need:
 
-This is _by far_ the easiest way to keep your environment consistent across different machines and team members, no matter the frequency of version updates. I'm not affiliated with mise but I wholeheartedly recommend it, so check it here: https://mise.jdx.dev.
+- Docker or a compatible container runtime
+- a Dev Container-compatible editor or the [Dev Container CLI](https://github.com/devcontainers/cli)
+- an SSH agent exposed through `SSH_AUTH_SOCK` with at least one key loaded
 
-If not using mise, make sure you have these available in your path:
+The SSH agent is forwarded into the container for Git authentication and commit signing. Private keys remain on the host.
 
-- go
-- golangci-lint (v2)
-- gofumpt
-- lefthook
-- cocogitto
+The Go toolchain and development tools are managed by `mise` inside the container.
+
+If you prefer not to use the Dev Container, install [mise](https://mise.jdx.dev) locally and run:
+
+```sh
+mise install
+```
 
 > [!NOTE]
-> Git hooks are in place to make sure both the tooling managed by mise and the project dependencies are synced with each checkout and merge.
+> Git hooks keep the tooling managed by mise synchronized after checkouts and merges.
 
-## tasks
+## running
 
-`make dev`
+### `make run`
 
-Runs `main.go`.
+Runs the project.
 
-`make build`
+### `make test`
 
-Builds the program into `./bin`.
+Runs the test suite.
 
-`make test`
+### `make lint`
 
-Runs all tests.
+Runs the configured linters.
 
-`make lint`
+### `make fmt`
 
-Runs golangci-lint with a few linters and format checking enabled.
+Formats the project.
 
-`make format`
+### `make build`
 
-Formats code using gofumpt.
+Builds the project.
 
 ## ci
 
-This repository uses GitHub Actions for CI. The workflow is defined in `.github/workflows/checks.yml`.
+CI is provided by GitHub Actions through [`.github/workflows/checks.yml`](https://github.com/mkvlrn/template-go/blob/main/.github/workflows/checks.yml).
 
-## vscode
-
-You might want to install the [Go extension](https://marketplace.visualstudio.com/items?itemName=golang.Go). The `.editorconfig` file handles basic formatting rules.
+It runs the project's formatting, linting, testing, and build checks.
 
 ## license
 
-MIT
+[MIT](https://github.com/mkvlrn/template-go/blob/main/LICENSE)
