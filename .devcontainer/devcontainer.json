@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/mkvlrn/mise-devcontainer-archlinux:current@sha256:2f0ba9f2f07e079fb9af6bc00bd6ea8cc2d32d011a1b09387159e4634b661013",
+  "image": "ghcr.io/mkvlrn/mise-devcontainer-archlinux:current@sha256:90cc736371176a9a1bc872c1339d644663db6e1d8d0d3f76dd70b51067d58c58",
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "name": "mise-devcontainer-archlinux-${localWorkspaceFolderBasename}",
   "containerUser": "root",
@@ -8,11 +8,25 @@
   "updateRemoteUserUID": true,
   "workspaceFolder": "/code/${localWorkspaceFolderBasename}",
   "workspaceMount": "source=${localWorkspaceFolder},target=/code/${localWorkspaceFolderBasename},type=bind",
-  "mounts": ["source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"],
+  "mounts": [
+    "source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
+  ],
   "overrideCommand": false,
-  "postCreateCommand": ["/bin/fish", "-lc", "/usr/local/bin/post-create.sh"],
-  "postStartCommand": ["/bin/fish", "-lc", "/usr/local/bin/post-start.sh"],
-  "postAttachCommand": ["/bin/fish", "-lc", "/usr/local/bin/post-start.sh"],
+  "postCreateCommand": [
+    "/bin/fish",
+    "-lc",
+    "/usr/local/bin/post-create.sh"
+  ],
+  "postStartCommand": [
+    "/bin/fish",
+    "-lc",
+    "/usr/local/bin/post-start.sh"
+  ],
+  "postAttachCommand": [
+    "/bin/fish",
+    "-lc",
+    "/usr/local/bin/post-start.sh"
+  ],
   "waitFor": "postStartCommand",
   "containerEnv": {
     "SSH_AUTH_SOCK": "/ssh-agent",
