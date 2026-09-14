@@ -26,7 +26,7 @@ build:
 
 
 sync-branch:
-	@if command -v mise >/dev/null 2>&1; then mise prune -y; fi
+	@if command -v mise >/dev/null 2>&1; then mise install && mise prune -y; fi
 	@go mod tidy
 	@lefthook install
 
