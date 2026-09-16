@@ -4,6 +4,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"strconv"
 
 	"github.com/mkvlrn/template-go/internal/calculator"
@@ -16,7 +17,7 @@ func main() {
 
 	solution, err := calculator.Solve(input)
 	if err != nil {
-		panic(err)
+		log.Fatalf("error: %v", err)
 	}
 
 	formattedSolution := strconv.FormatFloat(solution, 'f', -1, 64)
