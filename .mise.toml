@@ -13,34 +13,30 @@ disable_backends = ["asdf"]
 use_versions_host = false
 minimum_release_age = "1d"
 
-[tasks.dev]
-run = "go run . $ARGS"
-description = "Run the Go application"
-
-[tasks.lint]
-run = "golangci-lint run ./..."
-description = "Run linter"
-
-[tasks.format]
-run = "gofumpt -w ."
-description = "Format code using gofumpt"
-
-[tasks.test]
-run = "go test ./... -cover"
-description = "Run tests with coverage"
-
-[tasks.build]
-run = """
+[tasks]
+# mise dev
+dev.description = "Run the Go application"
+dev.run = "go run . $ARGS"
+# mise lint
+lint.description = "Run linter"
+lint.run = "golangci-lint run ./..."
+# mise format
+format.description = "Format code using gofumpt"
+format.run = "gofumpt -w ."
+# mise test
+test.description = "Run tests with coverage"
+test.run = "go test ./... -cover"
+# mise build
+build.description = "Build the application binary"
+build.run = """
 rm -rf ./bin
 mkdir -p ./bin
 go build -o ./bin/main main.go
 """
-description = "Build the application binary"
-
-[tasks.sync-branch]
-run = """
+# mise sync-branch
+sync-branch.description = "Sync branch dependencies and tools"
+sync-branch.run = """
 mise install
 mise prune -y
 go mod tidy
 """
-description = "Sync branch dependencies and tools"
