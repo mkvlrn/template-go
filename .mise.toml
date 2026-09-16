@@ -5,7 +5,42 @@ gofumpt = "0.12.0"
 lefthook = "2.1.12"
 cocogitto = "7.0.0"
 
+[hooks]
+postinstall = "lefthook install"
+
 [settings]
 disable_backends = ["asdf"]
 use_versions_host = false
 minimum_release_age = "1d"
+
+[tasks.dev]
+run = "go run . $ARGS"
+description = "Run the Go application"
+
+[tasks.lint]
+run = "golangci-lint run ./..."
+description = "Run linter"
+
+[tasks.format]
+run = "gofumpt -w ."
+description = "Format code using gofumpt"
+
+[tasks.test]
+run = "go test ./... -cover"
+description = "Run tests with coverage"
+
+[tasks.build]
+run = """
+rm -rf ./bin
+mkdir -p ./bin
+go build -o ./bin/main main.go
+"""
+description = "Build the application binary"
+
+[tasks.sync-branch]
+run = """
+mise install
+mise prune -y
+go mod tidy
+"""
+description = "Sync branch dependencies and tools"

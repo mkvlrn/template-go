@@ -10,7 +10,7 @@ A sane, opinionated template for Go projects.
 > [!NOTE]
 > This template includes an Arch Linux Dev Container based on [mise-devcontainers](https://github.com/mkvlrn/mise-devcontainers), providing a consistent development environment with [mise](https://mise.jdx.dev) preconfigured.
 >
-> `mise` manages the Go toolchain and development tools inside the container. Project tasks intentionally use `make`, keeping the usual interface expected in Go projects.
+> `mise` manages the Go toolchain and development tools inside the container and project tasks are handled natively via mise tasks.
 
 Uses, among other tools:
 
@@ -18,7 +18,7 @@ Uses, among other tools:
 - [gofumpt](https://github.com/mvdan/gofumpt) for formatting
 - [Lefthook](https://github.com/evilmartians/lefthook) for Git hooks
 - [Cocogitto](https://github.com/cocogitto/cocogitto) for commit message linting
-- [GNU Make](https://www.gnu.org/software/make/) as the task interface
+- [mise](https://mise.jdx.dev) as the task interface
 
 ## requirements and dependencies
 
@@ -30,7 +30,7 @@ To use the included Dev Container you need:
 
 The SSH agent is forwarded into the container for Git authentication and commit signing. Private keys remain on the host.
 
-The Go toolchain and development tools are managed by `mise` inside the container. `make` is used to run project tasks.
+The Go toolchain and development tools are managed by `mise` inside the container. `mise` tasks are used to run project operations.
 
 If you prefer not to use the Dev Container, install [mise](https://mise.jdx.dev) locally and run:
 
@@ -43,25 +43,25 @@ mise install
 
 ## running
 
-Project tasks are exposed through the `Makefile` rather than mise tasks.
+Project tasks are exposed through `mise`.
 
-### `make run`
+### `mise run dev`
 
 Runs the project.
 
-### `make test`
+### `mise run test`
 
 Runs the test suite.
 
-### `make lint`
+### `mise run lint`
 
 Runs the configured linters.
 
-### `make fmt`
+### `mise run format`
 
 Formats the project.
 
-### `make build`
+### `mise run build`
 
 Builds the project.
 
