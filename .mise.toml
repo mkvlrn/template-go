@@ -1,7 +1,6 @@
 [tools]
 golangci-lint = "2.13.2"
 go = "1.27.1"
-gofumpt = "0.12.0"
 lefthook = "2.1.14"
 cocogitto = "7.0.0"
 
@@ -22,7 +21,7 @@ lint.description = "Run linter"
 lint.run = "golangci-lint run ./..."
 # mise format
 format.description = "Format code using gofumpt"
-format.run = "gofumpt -w ."
+format.run = "golangci-lint fmt ./..."
 # mise test
 test.description = "Run tests with coverage"
 test.run = "go test ./... -cover"
