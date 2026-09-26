@@ -30,7 +30,7 @@ build.description = "Build the application binary"
 build.run = """
 rm -rf ./bin
 mkdir -p ./bin
-go build -o ./bin/main main.go
+go build -o ./bin/main .
 """
 # mise sync-branch
 sync-branch.description = "Sync branch dependencies and tools"
