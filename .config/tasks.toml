@@ -1,18 +1,26 @@
 [dev]
 description = "Run the Go application"
-run = "mise exec -- go run . $ARGS"
+run = """
+mise exec -- go run . $ARGS
+"""
 
 [lint]
 description = "Run linter"
-run = "mise exec -- golangci-lint run ./..."
+run = """
+mise exec -- golangci-lint run ./...
+"""
 
 [format]
 description = "Format code using gofumpt"
-run = "mise exec -- golangci-lint fmt ./..."
+run = """
+mise exec -- golangci-lint fmt ./...
+"""
 
 [test]
 description = "Run tests with coverage"
-run = "mise exec -- go test ./... -cover"
+run = """
+mise exec -- go test ./... -cover
+"""
 
 [build]
 description = "Build the application binary"
