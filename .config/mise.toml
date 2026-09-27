@@ -5,7 +5,7 @@ lefthook = "2.1.14"
 cocogitto = "7.0.0"
 
 [hooks]
-postinstall = "lefthook install"
+postinstall = "mise exec -- lefthook install"
 
 [settings]
 disable_backends = ["asdf"]
