@@ -12,30 +12,5 @@ disable_backends = ["asdf"]
 use_versions_host = false
 minimum_release_age = "1d"
 
-[tasks]
-# mise dev
-dev.description = "Run the Go application"
-dev.run = "go run . $ARGS"
-# mise lint
-lint.description = "Run linter"
-lint.run = "golangci-lint run ./..."
-# mise format
-format.description = "Format code using gofumpt"
-format.run = "golangci-lint fmt ./..."
-# mise test
-test.description = "Run tests with coverage"
-test.run = "go test ./... -cover"
-# mise build
-build.description = "Build the application binary"
-build.run = """
-rm -rf ./bin
-mkdir -p ./bin
-go build -o ./bin/template-go .
-"""
-# mise sync-branch
-sync-branch.description = "Sync branch dependencies and tools"
-sync-branch.run = """
-mise install
-mise prune -y
-go mod tidy
-"""
+[task_config]
+includes = ["./.config/tasks.toml"]
