@@ -3,4 +3,4 @@
 
 set -euo pipefail
 
-mise exec -- go run . "$@"
+mise exec -- go run ./cmd/template-go "$@"

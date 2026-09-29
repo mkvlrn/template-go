@@ -5,4 +5,4 @@ set -euo pipefail
 
 rm -rf ./bin
 mkdir -p ./bin
-mise exec -- go build -o ./bin/template-go . "$@"
+mise exec -- go build -o ./bin/template-go ./cmd/template-go "$@"
