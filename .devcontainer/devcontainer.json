@@ -1,18 +1,32 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "name": "mise-devcontainer-archlinux-${localWorkspaceFolderBasename}",
-  "image": "ghcr.io/mkvlrn/mise-devcontainer-archlinux:current@sha256:507478636a12072b88a56aa06b0caca714be590342f91e7322c58b96c7793256",
+  "image": "ghcr.io/mkvlrn/mise-devcontainer-archlinux:current@sha256:db5bb2631fda0ba76bdf5269a4cadb65f042213eb3b2f249278448c75a786abf",
   "containerUser": "root",
   "remoteUser": "dev",
   "privileged": true,
   "updateRemoteUserUID": true,
   "workspaceFolder": "/code/${localWorkspaceFolderBasename}",
   "workspaceMount": "source=${localWorkspaceFolder},target=/code/${localWorkspaceFolderBasename},type=bind",
-  "mounts": ["source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"],
+  "mounts": [
+    "source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
+  ],
   "overrideCommand": false,
-  "postCreateCommand": ["/bin/zsh", "-lc", "/usr/local/bin/post-create.sh"],
-  "postStartCommand": ["/bin/zsh", "-lc", "/usr/local/bin/post-start.sh"],
-  "postAttachCommand": ["/bin/zsh", "-lc", "/usr/local/bin/post-start.sh"],
+  "postCreateCommand": [
+    "/bin/zsh",
+    "-lc",
+    "/usr/local/bin/post-create.sh"
+  ],
+  "postStartCommand": [
+    "/bin/zsh",
+    "-lc",
+    "/usr/local/bin/post-start.sh"
+  ],
+  "postAttachCommand": [
+    "/bin/zsh",
+    "-lc",
+    "/usr/local/bin/post-start.sh"
+  ],
   "waitFor": "postStartCommand",
   "containerEnv": {
     "SSH_AUTH_SOCK": "/ssh-agent",
