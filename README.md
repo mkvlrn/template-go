@@ -7,22 +7,23 @@
 
 A sane, opinionated template for Go projects.
 
-> [!NOTE]
-> This template includes an Arch Linux Dev Container based on [mise-devcontainers](https://github.com/mkvlrn/mise-devcontainers), providing a consistent development environment with [mise](https://mise.jdx.dev) preconfigured.
+> [!TIP]
+> Using [mise](https://mise.jdx.dev) locally is the path of least friction: it manages the Go toolchain, development tools, and tasks without requiring a container.
 >
-> `mise` manages the Go toolchain and development tools inside the container and project tasks are handled natively via mise tasks.
+> This template also includes an optional Arch Linux Dev Container based on [mise-devcontainers](https://github.com/mkvlrn/mise-devcontainers). It is suggested if you do not normally use `mise` or want a consistent, preconfigured development environment.
 
 Uses, among other tools:
 
-- [golangci-lint](https://golangci-lint.run) for linting
-- [gofumpt](https://github.com/mvdan/gofumpt) for formatting
+- [golangci-lint](https://golangci-lint.run) for linting and running the [gofumpt](https://github.com/mvdan/gofumpt) formatter
 - [Lefthook](https://github.com/evilmartians/lefthook) for Git hooks
 - [Cocogitto](https://github.com/cocogitto/cocogitto) for commit message linting
 - [mise](https://mise.jdx.dev) as the task interface
 
 ## requirements and dependencies
 
-To use the included Dev Container you need:
+Using `mise` locally is recommended and provides the least-friction setup. If you do not normally use `mise`, the included Dev Container is an optional way to get a consistent development environment with everything preconfigured.
+
+To use the Dev Container you need:
 
 - Docker or a compatible container runtime
 - a Dev Container-compatible editor or the [Dev Container CLI](https://github.com/devcontainers/cli)
@@ -30,9 +31,9 @@ To use the included Dev Container you need:
 
 The SSH agent is forwarded into the container for Git authentication and commit signing. Private keys remain on the host.
 
-The Go toolchain and development tools are managed by `mise` inside the container. `mise` tasks are used to run project operations.
+The Go toolchain and development tools are managed by `mise`. `mise` tasks are used to run project operations.
 
-If you prefer not to use the Dev Container, install [mise](https://mise.jdx.dev) locally and run:
+If you do not use the Dev Container, install [mise](https://mise.jdx.dev) locally and run:
 
 ```sh
 mise install
